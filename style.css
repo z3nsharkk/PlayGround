@@ -1,0 +1,33 @@
+* { box-sizing: border-box; }
+:root { color-scheme: dark; font-family: "Courier New", monospace; }
+html, body { margin: 0; min-height: 100%; background: #10101b; color: #fff; }
+body { min-height: 100dvh; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+.game-shell { width: min(100vw, 1100px); aspect-ratio: 3 / 2; position: relative; background: #10101b; }
+canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; touch-action: none; }
+.hint { position: fixed; bottom: 10px; left: 0; width: 100%; margin: 0; text-align: center; font-size: 12px; letter-spacing: 1px; color: #88889b; pointer-events: none; }
+.mobile-controls { display: none; position: absolute; inset: auto 0 0; height: 145px; align-items: center; justify-content: space-between; padding: 8px 18px 12px; pointer-events: none; }
+.stick-wrap, .touch-actions { pointer-events: auto; }
+.stick-wrap { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.stick-ring { height: 96px; width: 96px; border: 2px solid #ffffff73; border-radius: 50%; background: #20202dbb; position: relative; touch-action: none; }
+.stick-thumb { position: absolute; width: 38px; height: 38px; border-radius: 50%; background: #ffcf61; border: 2px solid white; left: 27px; top: 27px; box-shadow: 0 2px 8px #0008; }
+.control-caption, .touch-actions small { color: #c5c5d1; font-size: 10px; letter-spacing: 1px; text-shadow: 0 1px 3px #000; }
+.touch-actions { display: grid; grid-template-columns: repeat(3, 54px); grid-template-rows: 52px 16px; gap: 5px; justify-items: center; align-items: center; }
+.touch-button { width: 50px; height: 50px; border-radius: 50%; color: white; font: bold 20px "Courier New", monospace; border: 2px solid #eee; box-shadow: 0 3px 0 #0008; touch-action: none; }
+.touch-button:active { transform: translateY(2px); box-shadow: none; }
+.button-z { background: #b94d47; }
+.button-x { background: #4c6ab0; }
+.button-c { background: #7655a8; }
+.touch-actions small { grid-column: 1 / 4; white-space: nowrap; font-size: 9px; }
+@media (pointer: coarse), (max-width: 760px) {
+  body { align-items: flex-start; }
+  .game-shell { width: 100vw; height: 100dvh; aspect-ratio: auto; overflow: hidden; }
+  canvas { position: absolute; width: 100%; height: auto; max-height: calc(100% - 150px); left: 0; top: calc((100% - 145px) / 2); transform: translateY(-50%); }
+  .mobile-controls { display: flex; }
+  .hint { display: none; }
+}
+@media (max-height: 500px) and (pointer: coarse) {
+ .mobile-controls { height: 112px; padding: 4px 16px; }
+ .stick-ring { width: 76px; height: 76px; }
+ .stick-thumb { left: 17px; top: 17px; }
+ .touch-actions { transform: scale(.85); transform-origin: right center; }
+}

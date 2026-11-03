@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#10101b">
+  <title>Haru's Heart Sprint</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell" aria-label="Haru's Heart Sprint game">
+    <canvas id="game" width="960" height="640" aria-label="Turn-based bullet-dodge boss fight"></canvas>
+    <div class="mobile-controls" aria-label="Touch controls">
+      <div class="stick-wrap">
+        <div class="stick-ring" id="stick"><span class="stick-thumb" id="thumb"></span></div>
+        <span class="control-caption">MOVE</span>
+      </div>
+      <div class="touch-actions">
+        <button class="touch-button button-c" data-key="c" aria-label="C action">C</button>
+        <button class="touch-button button-x" data-key="x" aria-label="X cancel">X</button>
+        <button class="touch-button button-z" data-key="z" aria-label="Z confirm">Z</button>
+        <small>Z · confirm &nbsp; X · back &nbsp; C · act</small>
+      </div>
+    </div>
+  </main>
+  <p class="hint">ARROWS move · Z confirm · X back · C ACT shortcut</p>
+  <script src="game.js"></script>
+</body>
+</html>
